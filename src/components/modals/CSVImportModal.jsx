@@ -84,7 +84,7 @@ Climbing Stairs,LeetCode,Easy,Dynamic Programming`;
             />
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <div className="modal-actions-bar">
             <button
               type="button"
               onClick={() => setActiveModal(null)}

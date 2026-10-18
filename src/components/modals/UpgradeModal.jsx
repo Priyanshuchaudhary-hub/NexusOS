@@ -97,7 +97,7 @@ export const UpgradeModal = () => {
         </div>
 
         {/* Comparison Tier Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px', marginBottom: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '18px', marginBottom: '24px' }}>
           {/* Free Tier */}
           <div className="glass-panel" style={{ padding: '22px', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
             <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-secondary)' }}>FREE SCHOLAR</div>
@@ -160,7 +160,7 @@ export const UpgradeModal = () => {
             <span>Secure 256-bit checkout • Instant UPI & Credit/Debit Card activation</span>
           </div>
 
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div className="modal-actions-bar" style={{ marginTop: 0 }}>
             <button onClick={() => setActiveModal(null)} className="btn btn-secondary">
               Later
             </button>

@@ -88,12 +88,12 @@ export const DailyPlanView = () => {
   };
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* 1. Primary Page Header: Title, Date & Greeting */}
       <div 
         className="glass-panel motionsites-card animate-fade-in" 
         style={{
-          padding: '28px 32px',
+          padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
           marginBottom: '20px',
           backgroundColor: '#FFFFFF',
           border: '1px solid var(--border-subtle)',
@@ -104,7 +104,7 @@ export const DailyPlanView = () => {
         <div style={{
           position: 'absolute',
           top: '-60px',
-          right: '-40px',
+          right: '0',
           width: '260px',
           height: '260px',
           borderRadius: '50%',
@@ -113,7 +113,7 @@ export const DailyPlanView = () => {
         }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
             <span className="badge badge-indigo">
               <Sparkles size={12} /> Today's Command Center
             </span>
@@ -122,7 +122,7 @@ export const DailyPlanView = () => {
             </span>
           </div>
 
-          <h1 style={{ fontSize: 'var(--text-3xl)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', margin: 0 }}>
+          <h1 style={{ fontSize: 'clamp(1.6rem, 4vw, 2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', margin: 0 }}>
             Good morning, {firstName}.
           </h1>
 
@@ -139,7 +139,7 @@ export const DailyPlanView = () => {
       {/* 2. Secondary Metrics Strip: Daily Progress, Upcoming Deadlines, Streak, Planned Focus */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
         gap: '16px',
         marginBottom: '24px'
       }}>
@@ -220,7 +220,7 @@ export const DailyPlanView = () => {
       {/* 3. Hero Focus Panel (Recommended Next Action) */}
       {nextActionTask && (
         <div 
-          className="glass-panel animate-fade-in stagger-1"
+          className="glass-panel animate-fade-in stagger-1 hero-action-panel"
           style={{
             padding: '20px 24px',
             marginBottom: '24px',
@@ -233,7 +233,7 @@ export const DailyPlanView = () => {
             gap: '16px'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0, flex: '1 1 280px' }}>
             <div style={{
               width: '44px',
               height: '44px',
@@ -248,8 +248,8 @@ export const DailyPlanView = () => {
               <Target size={22} />
             </div>
 
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                 <span className="badge badge-indigo">
                   Recommended Next Action
                 </span>
@@ -264,7 +264,7 @@ export const DailyPlanView = () => {
                   </span>
                 )}
               </div>
-              <div style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-main)', marginTop: '4px' }}>
+              <div style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-main)', marginTop: '4px', wordBreak: 'break-word' }}>
                 {nextActionTask.title}
               </div>
               <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>
@@ -273,7 +273,7 @@ export const DailyPlanView = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div className="hero-action-buttons">
             <button
               onClick={() => completeTask(nextActionTask.id)}
               className="btn btn-primary"
@@ -294,7 +294,7 @@ export const DailyPlanView = () => {
       )}
 
       {/* 4. Main Bento Dashboard Layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(320px, 380px)', gap: '24px' }}>
+      <div className="daily-dashboard-grid">
         {/* Left Column: Tasks List & Controls */}
         <div>
           <h2 className="sr-only">Today's Focus Tasks</h2>
@@ -355,8 +355,8 @@ export const DailyPlanView = () => {
                       backgroundColor: isDone ? '#F8FAF8' : '#FFFFFF'
                     }}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '14px' }}>
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px', flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', minWidth: 0, flex: '1 1 180px' }}>
                         {/* Checkbox trigger */}
                         <button
                           onClick={() => completeTask(task.id)}
@@ -367,14 +367,15 @@ export const DailyPlanView = () => {
                           {isDone && <CheckCircle2 size={15} color="#ffffff" />}
                         </button>
 
-                        <div>
+                        <div style={{ minWidth: 0 }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                             <span style={{
                               fontSize: 'var(--text-base)',
                               fontWeight: 600,
                               color: isDone ? 'var(--text-muted)' : 'var(--text-main)',
                               textDecoration: isDone ? 'line-through' : 'none',
-                              transition: 'all var(--transition-fast)'
+                              transition: 'all var(--transition-fast)',
+                              wordBreak: 'break-word'
                             }}>
                               {task.title}
                             </span>
@@ -387,13 +388,13 @@ export const DailyPlanView = () => {
                           </div>
 
                           {task.notes && (
-                            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)', marginTop: '4px', wordBreak: 'break-word' }}>
                               💡 {task.notes}
                             </div>
                           )}
 
                           {task.courseName && (
-                            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--accent-emerald)', marginTop: '3px' }}>
+                            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--accent-emerald)', marginTop: '3px', wordBreak: 'break-word' }}>
                               📚 Connected to {task.courseName}
                             </div>
                           )}
@@ -401,7 +402,7 @@ export const DailyPlanView = () => {
                       </div>
 
                       {/* Estimated Time & Due */}
-                      <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div className="task-item-time" style={{ textAlign: 'right', flexShrink: 0 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: 'var(--text-xs)', color: 'var(--text-secondary)', justifyContent: 'flex-end' }}>
                           <Clock size={13} />
                           <span>{task.estMinutes} mins</span>
@@ -429,7 +430,7 @@ export const DailyPlanView = () => {
                         {isHinglish ? 'Daily Check-in:' : 'Check-in Action:'}
                       </div>
 
-                      <div style={{ display: 'flex', gap: '8px' }}>
+                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                         {/* Done */}
                         <button
                           onClick={() => markTaskStatus(task.id, 'done')}

@@ -82,12 +82,12 @@ export const DSATrackerView = () => {
   };
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* Header & Main Stats Banner */}
       <div 
         className="glass-panel motionsites-card animate-fade-in" 
         style={{
-          padding: '28px 32px',
+          padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
           marginBottom: '24px',
           background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
           border: '1px solid var(--border-subtle)',
@@ -111,7 +111,7 @@ export const DSATrackerView = () => {
             </span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             {isHinglish ? 'DSA Placement Mastery Tracker' : 'DSA Placement Mastery Tracker'}
           </h2>
 
@@ -154,7 +154,7 @@ export const DSATrackerView = () => {
       </div>
 
       {/* Top Bento Metrics: Overall Progress, Daily Quota, Difficulty Bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* Metric 1: Solved vs Target */}
         <div className="glass-panel motionsites-card" style={{ padding: '22px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
@@ -242,7 +242,7 @@ export const DSATrackerView = () => {
           Topic Coverage Matrix
         </h3>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
           {byTopic.map((top) => {
             const pct = Math.round((top.solved / top.total) * 100);
             const isSelected = topicFilter.toLowerCase() === top.topic.toLowerCase();
@@ -317,7 +317,9 @@ export const DSATrackerView = () => {
                   outline: 'none',
                   color: 'var(--text-main)',
                   fontSize: '0.8rem',
-                  width: '180px'
+                  width: '100%',
+                  minWidth: '120px',
+                  maxWidth: '220px'
                 }}
               />
               {searchQuery && (

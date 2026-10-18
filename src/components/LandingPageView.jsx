@@ -203,7 +203,7 @@ export const LandingPageView = () => {
                   </button>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '14px' }}>
                   <div className="glass-panel" style={{ padding: '16px', borderLeft: '4px solid var(--accent-rose)', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#DC2626', fontWeight: 600 }}>
                       <span>CS301 Operating Systems</span>
@@ -297,7 +297,7 @@ export const LandingPageView = () => {
                   </button>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '12px' }}>
                   <div className="glass-panel" style={{ padding: '16px', textAlign: 'center', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#16A34A', fontWeight: 600 }}>EASY PROBLEMS</div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)' }}>58</div>
@@ -507,7 +507,7 @@ export const LandingPageView = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '24px', maxWidth: '900px', margin: '0 auto' }}>
           {/* Free Tier */}
           <div className="glass-panel" style={{ padding: '32px 28px', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
             <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-secondary)' }}>FREE SCHOLAR</div>

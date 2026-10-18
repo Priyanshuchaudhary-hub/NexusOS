@@ -116,16 +116,16 @@ export const ReplanModal = () => {
                   transition: 'all 0.2s ease'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span className="badge badge-emerald" style={{ fontSize: '0.65rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', minWidth: 0, flex: '1 1 180px' }}>
+                    <span className="badge badge-emerald" style={{ fontSize: '0.65rem', flexShrink: 0 }}>
                       Option {idx + 1} {idx === 0 && '• Recommended'}
                     </span>
-                    <span style={{ fontSize: '0.975rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                    <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', wordBreak: 'break-word' }}>
                       {opt.title}
                     </span>
                   </div>
-                  <button className="btn btn-primary" style={{ padding: '5px 12px', fontSize: '0.75rem' }}>
+                  <button className="btn btn-primary" style={{ padding: '5px 12px', fontSize: '0.75rem', flexShrink: 0 }}>
                     Accept <ArrowRight size={13} />
                   </button>
                 </div>
@@ -143,7 +143,7 @@ export const ReplanModal = () => {
         </div>
 
         {/* Footer */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+        <div className="modal-actions-bar">
           <button
             onClick={() => setActiveModal(null)}
             className="btn btn-secondary"

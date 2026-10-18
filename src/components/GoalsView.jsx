@@ -36,12 +36,12 @@ export const GoalsView = () => {
   };
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* Page Header */}
       <div 
         className="glass-panel motionsites-card animate-fade-in"
         style={{
-          padding: '28px 32px',
+          padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
           marginBottom: '24px',
           background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
           border: '1px solid var(--border-subtle)',
@@ -53,7 +53,7 @@ export const GoalsView = () => {
         }}
       >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
             <span className="badge badge-indigo">
               <Sparkles size={12} /> {isHinglish ? 'AI Milestone Engine' : 'AI Goal Engine'}
             </span>
@@ -62,7 +62,7 @@ export const GoalsView = () => {
             </span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             {isHinglish ? 'Goals aur AI Roadmaps' : 'Goals & Roadmaps'}
           </h2>
 
@@ -86,7 +86,7 @@ export const GoalsView = () => {
       {/* Goal Overview Metrics Bar */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
         gap: '16px',
         marginBottom: '24px'
       }}>
@@ -170,7 +170,7 @@ export const GoalsView = () => {
               key={goal.id} 
               className={`glass-panel motionsites-card animate-fade-in stagger-${Math.min(gIdx + 1, 5)}`}
               style={{ 
-                padding: '26px 30px', 
+                padding: 'clamp(18px, 4vw, 26px) clamp(16px, 4vw, 30px)', 
                 borderTop: `4px solid ${goal.color || 'var(--accent-primary)'}`,
                 background: '#FFFFFF'
               }}
@@ -191,12 +191,12 @@ export const GoalsView = () => {
                       </span>
                     )}
                   </div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', wordBreak: 'break-word' }}>
                     {goal.title}
                   </h3>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '18px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.825rem', color: 'var(--text-secondary)' }}>
                     <Clock size={15} color="var(--accent-primary)" />
                     <span>{goal.hoursPerWeek} hrs/week</span>
@@ -242,7 +242,7 @@ export const GoalsView = () => {
                     Structured Sprint Progression
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '14px' }}>
                     {goal.milestones.map((m, mIdx) => {
                       const isDone = m.status === 'completed';
                       const isInProgress = m.status === 'in-progress';

@@ -83,7 +83,7 @@ export const AddGoalModal = () => {
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2col">
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '6px' }}>
                 Category:
@@ -116,7 +116,7 @@ export const AddGoalModal = () => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2col">
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '6px' }}>
                 Target Completion Date:
@@ -145,7 +145,7 @@ export const AddGoalModal = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
+          <div className="modal-actions-bar">
             <button
               type="button"
               onClick={() => setActiveModal(null)}

@@ -22,15 +22,15 @@ export const PRDAnalysisView = () => {
   const [activeTab, setActiveTab] = useState('swot'); // 'swot' | 'persona' | 'metrics' | 'architecture'
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* Top Banner */}
       <div className="glass-panel motionsites-card animate-fade-in" style={{
-        padding: '28px 32px',
+        padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
         marginBottom: '24px',
         background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
         border: '1px solid var(--border-subtle)',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
           <span className="badge badge-indigo">
             <FileText size={12} /> PRD v0.1 Architectural & Strategic Analysis
           </span>
@@ -39,7 +39,7 @@ export const PRDAnalysisView = () => {
           </span>
         </div>
 
-        <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
           NexusOS: Strategic & Technical PRD Deconstruction
         </h2>
 
@@ -76,7 +76,7 @@ export const PRDAnalysisView = () => {
       {/* 1. SWOT ASSESSMENT */}
       {activeTab === 'swot' && (
         <div className="animate-fade-in">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
             {/* Strengths */}
             <div className="glass-panel motionsites-card" style={{ padding: '24px', borderTop: '4px solid var(--accent-emerald)', background: '#FFFFFF' }}>
               <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-emerald)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -139,7 +139,7 @@ export const PRDAnalysisView = () => {
               </h3>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px' }}>
               <div style={{ background: '#F0F7F1', padding: '18px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
                 <div style={{ fontWeight: 700, color: 'var(--accent-primary)', marginBottom: '6px' }}>ACADEMIC CONTEXT</div>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
@@ -175,7 +175,7 @@ export const PRDAnalysisView = () => {
       {/* 3. 3-MONTH MVP TARGET METRICS */}
       {activeTab === 'metrics' && (
         <div className="animate-fade-in">
-          <div className="glass-panel motionsites-card" style={{ padding: '28px', background: '#FFFFFF' }}>
+          <div className="glass-panel motionsites-card" style={{ padding: 'clamp(18px, 4vw, 28px)', background: '#FFFFFF' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <TrendingUp size={20} color="var(--accent-emerald)" />
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>
@@ -183,7 +183,7 @@ export const PRDAnalysisView = () => {
               </h3>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
               {[
                 { metric: 'Activation Rate (Goal + 1st check-in)', target: '60% signups', status: 'On-Track' },
                 { metric: 'Week-4 Retention', target: '25%', status: 'Targeting' },

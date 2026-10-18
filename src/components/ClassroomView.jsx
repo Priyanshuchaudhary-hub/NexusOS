@@ -41,10 +41,10 @@ export const ClassroomView = () => {
   const completedAssignmentsCount = data.classroom.assignments.filter(a => a.status === 'turned_in').length;
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* Top Banner */}
       <div className="glass-panel motionsites-card animate-fade-in" style={{
-        padding: '28px 32px',
+        padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
         marginBottom: '24px',
         background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
         border: '1px solid var(--border-subtle)',
@@ -55,7 +55,7 @@ export const ClassroomView = () => {
         gap: '20px'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
             <span className="badge badge-emerald">
               <ShieldCheck size={12} /> Google OAuth 2.0 (Read-Only)
             </span>
@@ -64,7 +64,7 @@ export const ClassroomView = () => {
             </span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             Google Classroom Sync Hub
           </h2>
 
@@ -142,7 +142,7 @@ export const ClassroomView = () => {
           {isHinglish ? 'Enrolled College Courses (Sem 5)' : 'Enrolled College Courses'}
         </h3>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '18px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '18px' }}>
           {data.classroom.courses.map((course) => (
             <div
               key={course.id}
@@ -197,7 +197,7 @@ export const ClassroomView = () => {
                 key={assign.id}
                 className="glass-panel motionsites-card"
                 style={{
-                  padding: '22px 26px',
+                  padding: 'clamp(16px, 4vw, 22px) clamp(14px, 4vw, 26px)',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',

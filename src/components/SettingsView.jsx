@@ -66,7 +66,7 @@ export const SettingsView = () => {
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px 0 60px' }}>
       {/* Settings Header */}
       <div className="glass-panel animate-fade-in" style={{
-        padding: '24px 28px',
+        padding: 'clamp(18px, 4vw, 24px) clamp(16px, 4vw, 28px)',
         marginBottom: '24px',
         background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
         border: '1px solid var(--border-subtle)',
@@ -80,7 +80,7 @@ export const SettingsView = () => {
             NexusOS v0.1 • Local & Cloud Synchronized
           </span>
         </div>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.75rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
           {isHinglish ? 'Settings aur Account Management' : 'Settings & Account Preferences'}
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: '720px', marginTop: '4px' }}>
@@ -89,7 +89,7 @@ export const SettingsView = () => {
       </div>
 
       {/* Main Settings Layout: Sidebar Navigation + Content Panel */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(220px, 260px) minmax(0, 1fr)', gap: '24px' }}>
+      <div className="settings-layout-grid">
         {/* Sidebar Nav */}
         <div className="glass-panel" style={{ padding: '12px', height: 'fit-content', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
           {[
@@ -123,7 +123,7 @@ export const SettingsView = () => {
         </div>
 
         {/* Section Content */}
-        <div className="glass-panel" style={{ padding: '28px', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
+        <div className="glass-panel" style={{ padding: 'clamp(18px, 4vw, 28px)', background: '#FFFFFF', border: '1px solid var(--border-subtle)' }}>
           {/* PROFILE SECTION */}
           {activeSection === 'profile' && (
             <div className="animate-fade-in">
@@ -135,7 +135,7 @@ export const SettingsView = () => {
               </p>
 
               <form onSubmit={handleSaveProfile} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '6px' }}>
                       Full Name:
@@ -163,7 +163,7 @@ export const SettingsView = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '6px' }}>
                       Department / Branch:

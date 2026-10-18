@@ -94,12 +94,12 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
   };
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '24px 0' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '16px 0' }}>
       {/* Header */}
       <div 
         className="glass-panel motionsites-card animate-fade-in"
         style={{
-          padding: '28px 32px',
+          padding: 'clamp(18px, 4vw, 28px) clamp(16px, 4vw, 32px)',
           marginBottom: '24px',
           background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F7F1 100%)',
           border: '1px solid var(--border-subtle)',
@@ -111,7 +111,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
         }}
       >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
             <span className="badge badge-indigo">
               <Sparkles size={12} /> {isHinglish ? 'AI Coach Weekly Debrief' : 'AI Performance Debrief'}
             </span>
@@ -120,7 +120,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
             </span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             {isHinglish ? 'Hafte Ka Performance Report' : 'Weekly Performance Review'}
           </h2>
 
@@ -131,7 +131,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <button onClick={handleShare} className="btn btn-secondary" style={{ padding: '9px 16px', fontSize: '0.85rem' }}>
             <Share2 size={15} />
             <span>Share</span>
@@ -144,7 +144,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
       </div>
 
       {/* Hero Stats Bento Grid with Staggered Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', marginBottom: '24px' }}>
         {/* Metric 1 */}
         <div className="glass-panel motionsites-card" style={{ padding: '20px', background: '#FFFFFF' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-primary)', marginBottom: '8px' }}>
@@ -203,7 +203,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
       </div>
 
       {/* Interactive 7-Day Bar Chart & AI Debrief */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.4fr) minmax(320px, 1fr)', gap: '24px', marginBottom: '28px' }}>
+      <div className="report-bento-grid">
         {/* Left: 7-Day Activity Chart */}
         <div className="glass-panel motionsites-card" style={{ padding: '26px', background: '#FFFFFF' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
@@ -276,7 +276,9 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
             fontSize: '0.8rem',
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center'
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '8px'
           }}>
             {activeDayHover ? (
               <>
@@ -330,7 +332,7 @@ ${report.suggestedNextWeekFocus.map(f => `[ ] ${f}`).join('\n')}
       </div>
 
       {/* Wins & Misses Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
         {/* Top Wins */}
         <div className="glass-panel motionsites-card" style={{ padding: '24px', borderTop: '4px solid var(--accent-emerald)', background: '#FFFFFF' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>

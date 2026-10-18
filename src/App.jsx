@@ -32,12 +32,8 @@ const ToastNotification = () => {
 
   return (
     <div 
-      className="glass-panel"
+      className="glass-panel toast-notification"
       style={{
-        position: 'fixed',
-        bottom: '24px',
-        right: '24px',
-        zIndex: 2000,
         backgroundColor: '#FFFFFF',
         border: type === 'success' 
           ? '1px solid #BEE8CD' 
@@ -50,7 +46,6 @@ const ToastNotification = () => {
         display: 'flex',
         alignItems: 'flex-start',
         gap: '12px',
-        maxWidth: '420px',
         animation: 'fadeSlideUp 220ms var(--ease-out-expo)'
       }}
     >
@@ -110,7 +105,7 @@ const MainContent = ({ isCmdPaletteOpen, setIsCmdPaletteOpen }) => {
   }, [setIsCmdPaletteOpen]);
 
   return (
-    <main style={{ minHeight: 'calc(100vh - 140px)', padding: '0 24px 60px' }}>
+    <main className="app-main-container">
       <div key={activeTab} className="animate-fade-in">
         {activeTab === 'daily' && <DailyPlanView />}
         {activeTab === 'goals' && <GoalsView />}

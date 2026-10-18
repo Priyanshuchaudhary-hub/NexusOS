@@ -55,28 +55,10 @@ export const Navbar = ({ onOpenCommandPalette }) => {
   };
 
   return (
-    <header style={{
-      position: 'sticky',
-      top: 0,
-      zIndex: 100,
-      backgroundColor: '#FFFFFF',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
-      borderBottom: '1px solid var(--border-subtle)',
-      boxShadow: '0 1px 3px rgba(23, 33, 27, 0.05)',
-      padding: '10px 24px',
-      transition: 'all var(--transition-base)'
-    }}>
-      <div style={{
-        maxWidth: '1440px',
-        margin: '0 auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '20px'
-      }}>
+    <header className="navbar-header">
+      <div className="navbar-container">
         {/* Left: Brand Identity & Primary Navigation */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
           {/* Logo & Product Brand */}
           <div 
             onClick={() => setActiveTab('daily')}
@@ -85,7 +67,8 @@ export const Navbar = ({ onOpenCommandPalette }) => {
               alignItems: 'center',
               gap: '10px',
               cursor: 'pointer',
-              userSelect: 'none'
+              userSelect: 'none',
+              flexShrink: 0
             }}
             title="NexusOS Workspace"
           >
@@ -106,10 +89,10 @@ export const Navbar = ({ onOpenCommandPalette }) => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: 'var(--text-lg)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>
+              <span className="brand-title-text" style={{ fontSize: 'var(--text-lg)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text-main)', whiteSpace: 'nowrap' }}>
                 Nexus<span style={{ color: 'var(--accent-primary)' }}>OS</span>
               </span>
-              <span className="badge badge-indigo" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px' }}>
+              <span className="badge badge-indigo brand-subtitle-badge" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px', whiteSpace: 'nowrap' }}>
                 Student OS
               </span>
             </div>
@@ -149,7 +132,7 @@ export const Navbar = ({ onOpenCommandPalette }) => {
         </div>
 
         {/* Center / Right: Primary Action, Command Search & Account Menu */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+        <div className="navbar-actions-group" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
           {/* Command Palette Trigger (Primary Utility) */}
           <button
             onClick={onOpenCommandPalette}
@@ -186,10 +169,12 @@ export const Navbar = ({ onOpenCommandPalette }) => {
           {/* Primary Action Button */}
           <button 
             onClick={() => setActiveModal('addTask')}
-            className="btn btn-primary"
+            className="btn btn-primary navbar-add-btn"
+            title={isHinglish ? 'Task Jodo' : 'Add Task'}
+            aria-label={isHinglish ? 'Task Jodo' : 'Add Task'}
           >
-            <Plus size={15} />
-            <span>{isHinglish ? 'Task Jodo' : 'Add Task'}</span>
+            <Plus size={16} />
+            <span className="navbar-add-btn-text">{isHinglish ? 'Task Jodo' : 'Add Task'}</span>
           </button>
 
           {/* Account Profile & System Dropdown (All Account-related features encapsulated cleanly) */}
@@ -248,7 +233,7 @@ export const Navbar = ({ onOpenCommandPalette }) => {
                 </span>
               </div>
 
-              <ChevronDown size={13} color="var(--text-muted)" />
+              <ChevronDown size={13} color="var(--text-muted)" className="profile-chevron-icon" />
             </button>
 
             {/* Encapsulated Account Menu Dropdown */}
@@ -443,6 +428,15 @@ export const Navbar = ({ onOpenCommandPalette }) => {
             >
               <Settings size={15} />
               <span>Account Settings</span>
+            </button>
+
+            <button 
+              onClick={() => { setActiveTab('landing'); setMobileMenuOpen(false); }}
+              className="btn btn-ghost btn-sm"
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              <Layers size={15} />
+              <span>Product Overview</span>
             </button>
           </div>
         </div>
